@@ -1,51 +1,47 @@
 console.log('hello world')
-document.querySelector('form').addEventListener('submit', addMovie);
-const message = document.querySelector('#message')
 
-function addMovie(event){
-    event.preventDefault();
+let message = document.querySelector('#message')
+
+document.querySelector('form').addEventListener('submit', addMovie)
+
+function addMovie (event){
+    event.preventDefault()
     let inputField = document.querySelector('input')
 
-    const movie = document.createElement('li')
+    let movie = document.createElement('list')
 
-    const movieTitle = document.createElement('span');
-    movieTitle.textContext = inputField.value;
+    let movieTitle = document.createElement('span')
+    movieTitle.textContent = inputField.value
     movieTitle.addEventListener('click', crossOffMovie)
     movie.appendChild(movieTitle)
 
-    const deleteBtn = document.createElement("button")
-    deleteBtn.textContent = "x"
+
+    let deleteBtn = document.createElement('button')
+    deleteBtn.textContent = 'x'
+    deleteBtn.addEventListener('click', deleteMovie)
     movie.appendChild(deleteBtn)
 
-    const list = document.querySelector('ul');
-    list.appendChild(movie)
-    //document.querySelector.appendChild(movie)
+    let movieList = document.querySelector('ul')
+    movieList.appendChild(movie)
+    //or
+    //document.querySelector("ul").appendChild(movie)
 
-    inputField.value = ''
+    inputField.value = " "
 }
 
-function deleteMovie(event){
+function deleteMovie (event) {
+    message.textContent = 'Movie deleted'
     event.target.parentNode.remove()
-    message.textContent = 'Movie deleted!'
 }
 
-function crossOffMovie(event){
+function crossOffMovie (event) {
     event.target.classList.toggle('checked')
 
     if (event.target.classList.contains('checked') === true) {
-        message.textContent = 'Movie watched!'
-        //interemdiate version
-        //message.textContent = `${event.target.textContent} watched!`
+        message.textContent = 'Movie watched'
     } else {
-        message.textContent = 'Movie added back!'
-        //interemdiate version
-        //message.textContent = `${event.target.textContent} added back!`
+        message.textContent = 'Movie added back'
     }
-
-    //revealMessage will be part of the intermediate instructions
-    revealMessage()
-}
-
 }
 
 
