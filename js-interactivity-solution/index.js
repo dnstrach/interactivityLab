@@ -59,7 +59,7 @@ function crossOffMovie(event) {
 
 //revealMessage will be part of the intermediate instructions
 function revealMessage() {
-    // message.classList.remove('hide')
+     message.classList.remove('hide')
     
     setTimeout(() => {
         message.classList.add('hide')
